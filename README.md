@@ -46,3 +46,43 @@ function convertToDecimal(num) {
 }
 
 ```
+## First Unique Character in a String
+
+Given a string, find the first non-repeating character in it and return it's index. If it doesn't exist, return -1.
+
+Examples:
+
+```
+s = "leetcode"
+return 0.
+
+s = "loveleetcode",
+return 2.
+```
+
+### Answer
+
+```
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var firstUniqChar = function(s) {
+    
+    let group = {};
+    let i = 0;
+    for(let i =0;i<s.length;i++) {
+        group[s[i]]= group[s[i]] ? group[s[i]] +1 : 1; 
+    }
+    
+   for(let i =0;i<s.length;i++) {
+        if(group[s[i]] == 1) {
+            return i;
+        }   
+    }
+    
+    return -1;
+
+};
+
+```
