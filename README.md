@@ -127,3 +127,30 @@ var majorityElement = function(nums) {
 };
 
 ```
+
+
+# Minimum Unique Array Sum
+Given an array, you must increment any duplicate elements until all its elements are unique. In addition, the sum of its elements must be the minimum possible within the rules. For example, if arr= [3, 2, 1, 2, 7], then arr= [3, 2, 1, 4, 7] and its elements sum to a minimal value of 3 + 2 + 1 + 4 + 7 = 17
+
+## Function Description
+Complete the getMinimumUniqueSumfunction in the editor below to create an array of unique elements with a minimal sum. Return the integer sum of the resulting array. `getMinimumUniqueSum` has the following parameter(s):arr:an array of integers to process
+
+
+# Answer
+```
+ function getMinimumUniqueSum(arr) {
+     var set = new Set();
+     for(let i = 0; i<arr.length; i++) {
+         let val = +arr[i];   
+         while(set.has(val)) {
+             val++;
+         }
+         set.add(val)
+     };
+     console.log(set);
+     return [...set].reduce((acc, curr) => acc+curr);
+ }
+
+ getMinimumUniqueSum([3, 2, 1, 2, 7])
+ 
+ ```
